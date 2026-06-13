@@ -1,17 +1,18 @@
-import sqlite3
 import pandas as pd
+
 
 def load_data():
 
-    conn = sqlite3.connect(
-        "database/smart_waste.db"
-    )
+    try:
 
-    df = pd.read_sql_query(
-        "SELECT * FROM bin_logs",
-        conn
-    )
+        df = pd.read_csv(
+            "data/historical_data.csv"
+        )
 
-    conn.close()
+        return df
 
-    return df
+    except Exception as e:
+
+        print(e)
+
+        return pd.DataFrame()
