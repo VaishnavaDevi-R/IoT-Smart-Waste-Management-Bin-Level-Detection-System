@@ -28,7 +28,7 @@ Experience the Smart Waste Management Dashboard in action:
 ### 🌐 Streamlit Dashboard
 
 **Live Application:**
-https://your-streamlit-link.streamlit.app/
+https://iot-smart-waste-management-bin-level-detection-system-vurzutjs.streamlit.app/
 
 ### 📊 Features Available in Demo
 
