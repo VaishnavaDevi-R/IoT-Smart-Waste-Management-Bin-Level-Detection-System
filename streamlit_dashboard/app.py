@@ -28,6 +28,9 @@ st_autorefresh(
 
 df = load_data()
 
+st.write("Unique bins:", df["bin_id"].unique())
+st.write("Count:", df["bin_id"].nunique())
+
 latest = (
     df.sort_values("timestamp")
     .groupby("bin_id")
