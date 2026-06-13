@@ -1,0 +1,16 @@
+SMART WASTE MANAGEMENT PREDICTIVE REPORT
+
+Highest Risk Bin:
+BIN003 (Hostel)
+
+Current Fill:
+77%
+
+Predicted Overflow:
+4.6 Hours
+
+Recommended Action:
+Schedule collection within next 4 hours.
+
+Priority:
+MEDIUM

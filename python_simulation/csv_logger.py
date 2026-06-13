@@ -3,9 +3,12 @@ import os
 
 CSV_FILE = "data/bin_logs.csv"
 
+
 def save_to_csv(data):
 
-    file_exists = os.path.isfile(CSV_FILE)
+    file_exists = os.path.isfile(
+        CSV_FILE
+    )
 
     with open(
         CSV_FILE,

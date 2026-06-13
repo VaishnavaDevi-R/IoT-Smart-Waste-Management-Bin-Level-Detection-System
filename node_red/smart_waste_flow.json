@@ -1,0 +1,521 @@
+[
+    {
+        "id": "45a050b2eb41986f",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "16bbc83791b02ffa",
+        "type": "mqtt in",
+        "z": "45a050b2eb41986f",
+        "name": "",
+        "topic": "smartbin/+/data",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4a30c729f637d66a",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 260,
+        "wires": [
+            [
+                "c68992ca98af7619"
+            ]
+        ]
+    },
+    {
+        "id": "c68992ca98af7619",
+        "type": "json",
+        "z": "45a050b2eb41986f",
+        "name": "",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 270,
+        "y": 260,
+        "wires": [
+            [
+                "ded9ac6e6aa397a4",
+                "3ab91c2276494543",
+                "b28cbcda3865b261",
+                "c3e476f85d48f1c8",
+                "01e76547238f032f",
+                "33f5ec7eb019f57c",
+                "1d65ae82f8e34e43",
+                "1971c28ca9967533"
+            ]
+        ]
+    },
+    {
+        "id": "ded9ac6e6aa397a4",
+        "type": "debug",
+        "z": "45a050b2eb41986f",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 440,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d58f018b68108f0a",
+        "type": "ui_gauge",
+        "z": "45a050b2eb41986f",
+        "name": "",
+        "group": "09b1bd3b800d6620",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Fill Percentage",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 700,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3ab91c2276494543",
+        "type": "function",
+        "z": "45a050b2eb41986f",
+        "name": "function 1",
+        "func": "node.warn(msg.payload);\n\nmsg.payload = msg.payload.fill_percentage;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 320,
+        "wires": [
+            [
+                "d58f018b68108f0a"
+            ]
+        ]
+    },
+    {
+        "id": "b28cbcda3865b261",
+        "type": "function",
+        "z": "45a050b2eb41986f",
+        "name": "function 2",
+        "func": "msg.payload = msg.payload.temperature;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 380,
+        "wires": [
+            [
+                "5f982dc19160222a",
+                "5bc8e688c90edbb5"
+            ]
+        ]
+    },
+    {
+        "id": "5f982dc19160222a",
+        "type": "ui_gauge",
+        "z": "45a050b2eb41986f",
+        "name": "",
+        "group": "09b1bd3b800d6620",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temperature",
+        "label": "°C",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "60",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 310,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "ee691883bc26d031",
+        "type": "ui_gauge",
+        "z": "45a050b2eb41986f",
+        "name": "",
+        "group": "09b1bd3b800d6620",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Humidity",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 300,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "c3e476f85d48f1c8",
+        "type": "function",
+        "z": "45a050b2eb41986f",
+        "name": "function 3",
+        "func": "msg.payload = msg.payload.humidity;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 520,
+        "wires": [
+            [
+                "ee691883bc26d031",
+                "45cac0803c24d574"
+            ]
+        ]
+    },
+    {
+        "id": "01e76547238f032f",
+        "type": "function",
+        "z": "45a050b2eb41986f",
+        "name": "function 4",
+        "func": "msg.payload = msg.payload.gas_level;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 180,
+        "y": 660,
+        "wires": [
+            [
+                "356e6e57903600ee",
+                "4ba4eba7a3204005"
+            ]
+        ]
+    },
+    {
+        "id": "356e6e57903600ee",
+        "type": "ui_gauge",
+        "z": "45a050b2eb41986f",
+        "name": "",
+        "group": "09b1bd3b800d6620",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Gas Level",
+        "label": "ppm",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "3000",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 340,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "5bc8e688c90edbb5",
+        "type": "debug",
+        "z": "45a050b2eb41986f",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "45cac0803c24d574",
+        "type": "debug",
+        "z": "45a050b2eb41986f",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 300,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "4ba4eba7a3204005",
+        "type": "debug",
+        "z": "45a050b2eb41986f",
+        "name": "debug 4",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 340,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "33f5ec7eb019f57c",
+        "type": "function",
+        "z": "45a050b2eb41986f",
+        "name": "function 5",
+        "func": "msg.payload =\nmsg.payload.bin_id +\n\" → \" +\nmsg.payload.status;\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 120,
+        "y": 780,
+        "wires": [
+            [
+                "9a744b174d040dad"
+            ]
+        ]
+    },
+    {
+        "id": "9a744b174d040dad",
+        "type": "ui_text",
+        "z": "45a050b2eb41986f",
+        "group": "09b1bd3b800d6620",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Current Status",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 280,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "055a5ccb0ee2a0f1",
+        "type": "ui_text",
+        "z": "45a050b2eb41986f",
+        "group": "09b1bd3b800d6620",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Alerts",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 710,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "1d65ae82f8e34e43",
+        "type": "function",
+        "z": "45a050b2eb41986f",
+        "name": "function 6",
+        "func": "if(msg.payload.alert !== \"NO ALERT\")\n{\n    msg.payload =\n    msg.payload.bin_id +\n    \" → \" +\n    msg.payload.alert;\n\n    return msg;\n}\n\nreturn null;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 380,
+        "wires": [
+            [
+                "055a5ccb0ee2a0f1"
+            ]
+        ]
+    },
+    {
+        "id": "1c2c1ad395625631",
+        "type": "ui_chart",
+        "z": "45a050b2eb41986f",
+        "name": "",
+        "group": "09b1bd3b800d6620",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "label": "Fill Level Trends",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 700,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1971c28ca9967533",
+        "type": "function",
+        "z": "45a050b2eb41986f",
+        "name": "function 7",
+        "func": "msg.topic = msg.payload.bin_id;\nmsg.payload = msg.payload.fill_percentage;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 440,
+        "wires": [
+            [
+                "1c2c1ad395625631"
+            ]
+        ]
+    },
+    {
+        "id": "4a30c729f637d66a",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "broker.hivemq.com",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "09b1bd3b800d6620",
+        "type": "ui_group",
+        "name": "Overview",
+        "tab": "1f6824a91afcae28",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "1f6824a91afcae28",
+        "type": "ui_tab",
+        "name": "Smart Waste Dashboard",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "cb1e90259b7b54ad",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-dashboard": "3.6.6"
+        }
+    }
+]

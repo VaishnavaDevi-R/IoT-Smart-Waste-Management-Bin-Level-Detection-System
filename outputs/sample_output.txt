@@ -1,0 +1,33 @@
+====================================================
+SMART WASTE MANAGEMENT SYSTEM
+====================================================
+
+Timestamp:
+2026-06-13 18:00:12
+
+Bin ID:
+BIN003
+
+Location:
+Hostel
+
+Fill Percentage:
+77%
+
+Temperature:
+30.84 °C
+
+Humidity:
+82.67 %
+
+Gas Level:
+2322 ppm
+
+Status:
+WARNING
+
+Alert:
+NO ALERT
+
+Predicted Overflow:
+4.6 Hours

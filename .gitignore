@@ -1,8 +1,51 @@
-venv/
+# Python
 __pycache__/
-*.pyc
+*.py[cod]
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Streamlit Secrets
+.streamlit/secrets.toml
+
+# Database Files
 *.db
-*.csv
+*.sqlite
+*.sqlite3
+
+# Environment Variables
 .env
-.idea
-.vscode
+
+# Logs
+*.log
+logs/
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Build Files
+build/
+dist/
+*.egg-info/
+
+# Cache
+.cache/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Temporary Files
+*.tmp
+*.bak
+
+# MQTT Credentials
+mqtt_credentials.py
+config.py

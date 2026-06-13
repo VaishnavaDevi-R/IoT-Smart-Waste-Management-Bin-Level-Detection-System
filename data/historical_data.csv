@@ -1,0 +1,4 @@
+timestamp,bin_id,location,fill_percentage,temperature,humidity,gas_level,status,alert
+2026-06-13 17:18:14,BIN001,Library,24,38.7,76.4,1849,EMPTY,NO ALERT
+2026-06-13 17:18:41,BIN002,Cafeteria,61,37.2,72.5,2288,WARNING,NO ALERT
+2026-06-13 17:19:08,BIN003,Hostel,77,30.8,82.6,2322,WARNING,NO ALERT

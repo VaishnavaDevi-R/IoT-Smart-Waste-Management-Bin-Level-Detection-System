@@ -1,0 +1,26 @@
+====================================================
+MQTT COMMUNICATION LOGS
+====================================================
+
+Connected to HiveMQ Cloud Broker
+
+Subscribed Topic:
+smartbin/+/data
+
+Received:
+
+BIN001 | Library | Fill: 30%
+
+BIN002 | Cafeteria | Fill: 76%
+
+BIN003 | Hostel | Fill: 77%
+
+BIN004 | Parking | Fill: 16%
+
+BIN005 | Academic Block | Fill: 44%
+
+Connection Status:
+ACTIVE
+
+Message Delivery:
+SUCCESSFUL

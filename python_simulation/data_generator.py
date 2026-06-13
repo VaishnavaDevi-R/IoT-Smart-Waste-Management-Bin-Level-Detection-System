@@ -3,6 +3,7 @@ from datetime import datetime
 
 BIN_HEIGHT = 50
 
+
 def calculate_status(fill_percentage):
 
     if fill_percentage <= 30:
@@ -16,6 +17,7 @@ def calculate_status(fill_percentage):
 
     return "FULL"
 
+
 def calculate_alert(fill_percentage):
 
     if fill_percentage >= 90:
@@ -26,9 +28,23 @@ def calculate_alert(fill_percentage):
 
     return "NO ALERT"
 
-def generate_sensor_data(bin_id, location):
 
-    fill_percentage = random.randint(5, 100)
+def generate_sensor_data(
+    bin_id,
+    location,
+    current_fill,
+    fill_rate
+):
+
+    increase = random.randint(
+        0,
+        fill_rate
+    )
+
+    fill_percentage = min(
+        100,
+        current_fill + increase
+    )
 
     distance = (
         BIN_HEIGHT -
@@ -36,11 +52,13 @@ def generate_sensor_data(bin_id, location):
     )
 
     temperature = round(
-        random.uniform(25, 40), 2
+        random.uniform(25, 40),
+        2
     )
 
     humidity = round(
-        random.uniform(45, 90), 2
+        random.uniform(45, 90),
+        2
     )
 
     gas_level = random.randint(
