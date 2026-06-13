@@ -1,18 +1,27 @@
+import sqlite3
 import pandas as pd
+import os
 
 
 def load_data():
 
     try:
 
-        df = pd.read_csv(
-            "data/historical_data.csv"
+        conn = sqlite3.connect(
+            "database/smart_waste.db"
         )
+
+        df = pd.read_sql_query(
+            "SELECT * FROM waste_data",
+            conn
+        )
+
+        conn.close()
 
         return df
 
-    except Exception as e:
+    except:
 
-        print(e)
-
-        return pd.DataFrame()
+        return pd.read_csv(
+            "data/historical_data.csv"
+        )
