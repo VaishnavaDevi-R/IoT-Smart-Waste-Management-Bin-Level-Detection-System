@@ -29,7 +29,7 @@ st_autorefresh(
 df = load_data()
 
 latest = (
-    df.sort_values("id")
+    df.sort_values("timestamp")
     .groupby("bin_id")
     .tail(1)
 )
