@@ -258,7 +258,7 @@ python_simulation/
 ### Clone Repository
 
 ```bash
-git clone https://github.com/VaishnavaDevi-R/IoT-Smart-Waste-Management-Predictive-Bin-Monitoring-System.git
+git clone https://github.com/VaishnavaDevi-R/IoT-Smart-Waste-Management-Bin-Level-Detection-System.git
 ```
 
 ### Navigate to Project
